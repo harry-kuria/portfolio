@@ -13,12 +13,12 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-7 text-left">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold mb-8 animate-fade-in tracking-widest uppercase">
-              <span className="relative flex h-2 w-2 mr-3">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold mb-8 animate-fade-in tracking-wide max-w-4xl">
+              <span className="relative flex h-2 w-2 mr-3 flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              Building the future of systems
+              <span className="leading-relaxed">From backend to frontend to mobile, I create seamless experiences that leave a lasting impression.</span>
             </div>
             
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-8 tracking-tighter">
