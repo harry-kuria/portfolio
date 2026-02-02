@@ -55,10 +55,10 @@ const Navbar: React.FC = () => {
             <a 
               href="#" 
               onClick={(e) => handleNavClick(e, '#')}
-              className="flex items-center space-x-2 text-2xl font-black text-white font-mono tracking-tighter"
+              className="flex items-center space-x-2 text-2xl font-black text-white tracking-tighter"
             >
               <Code2 className="w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform" />
-              <span>HARRY.LOG</span>
+              <span className="font-lemonmilk">HARRISON KURIA</span>
             </a>
           </div>
           
