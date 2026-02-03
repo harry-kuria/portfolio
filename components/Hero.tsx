@@ -18,15 +18,18 @@ const Hero: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
               </span>
-              Building the future of systems
+              Building experiences through lines of code
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.2] mb-8 tracking-tight">
-              From <span className="text-[#00D9FF] drop-shadow-[0_0_20px_rgba(0,217,255,0.9)] font-bold animate-pulse">Backend</span> to <span className="text-[#61DAFB] drop-shadow-[0_0_20px_rgba(97,218,251,0.9)] font-bold">Frontend</span> to <span className="text-[#A855F7] drop-shadow-[0_0_20px_rgba(168,85,247,0.9)] font-bold">Mobile</span>, I create seamless experiences that leave a lasting impression.
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tight">
+              I Create seamless experiences that leave a lasting impression
             </h1>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-400 leading-[1.3] mb-8 tracking-tight">
+              from <span className="text-[#00D9FF] drop-shadow-[0_0_20px_rgba(0,217,255,0.9)]">Backend</span> to <span className="text-[#61DAFB] drop-shadow-[0_0_20px_rgba(97,218,251,0.9)]">Frontend</span> to <span className="text-[#A855F7] drop-shadow-[0_0_20px_rgba(168,85,247,0.9)]">Mobile</span>
+            </h2>
             
             <p className="text-xl md:text-2xl text-slate-400 mb-10 leading-relaxed font-medium max-w-2xl">
-              I'm <span className="text-white font-bold">{PERSONAL_INFO.firstName}</span>, a Senior Engineer specialized in <span className="text-blue-400">Go Backend</span> systems, <span className="text-cyan-400">Mobile Architectures</span>, and high-end <span className="text-white">React JS</span> web interfaces.
+              I'm <span className="text-white font-bold">{PERSONAL_INFO.firstName}</span>, a Software Engineer specialized in <span className="text-blue-400">Go Backend</span> systems, <span className="text-cyan-400">Mobile Architectures</span>, and high-end <span className="text-white">React JS</span> web interfaces.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center space-y-5 sm:space-y-0 sm:space-x-6">

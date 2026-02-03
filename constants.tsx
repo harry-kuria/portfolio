@@ -99,6 +99,19 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
+    title: "Medislot",
+    description: "Medical booking platform where patients can book medical practitioners and practitioners can manage their schedules and book medical facilities.",
+    tags: ["Kotlin", "Jetpack Compose", "Go", "REST API"],
+    details: [
+      "Patients can book appointments with medical practitioners.",
+      "Practitioners can view and manage their bookings in real-time.",
+      "Practitioners can update their available time slots dynamically.",
+      "Practitioners can book medical facilities for their practice."
+    ],
+    video: "https://youtube.com/shorts/9sSQPnJcLeE?feature=share"
+  },
+  
+  {
     title: "WaaS Platform",
     description: "A robust Wallet as a Service hybrid mobile platform powered by Go and Protobuf.",
     tags: ["Go", "Kotlin", "Protobuf", "Room DB", "SQLite"],

@@ -15,17 +15,39 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { name: 'Home', href: '/' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Blog', href: '/blog' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/')) {
+      // Handle route navigation
+      e.preventDefault();
+      window.location.href = href;
+      return;
+    }
+    
     if (href.startsWith('#')) {
       e.preventDefault();
       const targetId = href.replace('#', '');
+      const isOnHomePage = window.location.pathname === '/' || window.location.pathname === '';
       
+      // If not on home page, navigate to home first, then scroll
+      if (!isOnHomePage) {
+        if (targetId === '') {
+          window.location.href = '/';
+        } else {
+          window.location.href = `/#${targetId}`;
+        }
+        setIsOpen(false);
+        return;
+      }
+      
+      // If on home page, just scroll to section
       if (targetId === '') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setIsOpen(false);
@@ -53,8 +75,16 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0 group">
             <a 
-              href="#" 
-              onClick={(e) => handleNavClick(e, '#')}
+              href="/" 
+              onClick={(e) => {
+                e.preventDefault();
+                if (window.location.pathname !== '/' && window.location.pathname !== '') {
+                  window.location.href = '/';
+                } else {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  setIsOpen(false);
+                }
+              }}
               className="flex items-center space-x-2 text-2xl font-black text-white tracking-tighter"
             >
               <Code2 className="w-8 h-8 text-blue-500 group-hover:rotate-12 transition-transform" />

@@ -14,9 +14,18 @@ export interface Project {
   tags: string[];
   link?: string;
   details: string[];
+  video?: string;
 }
 
 export interface SkillCategory {
   category: string;
   skills: string[];
+}
+
+export interface BlogPost {
+  title: string;
+  link: string;
+  thumbnail: string;
+  description: string;
+  date: string;
 }
