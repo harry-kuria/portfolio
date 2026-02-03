@@ -4,29 +4,30 @@ import Home from './pages/Home';
 import BlogPage from './pages/BlogPage';
 
 const App: React.FC = () => {
-  // Handle GitHub Pages 404 redirect
-  const getPath = () => {
-    let path = window.location.pathname;
-    // Handle GitHub Pages SPA redirect format: /?/blog
-    if (path === '/' && window.location.search) {
-      const search = window.location.search.slice(1); // Remove '?'
-      if (search.startsWith('/')) {
-        path = search;
-        // Clean up URL
-        window.history.replaceState({}, '', path);
-      }
+  // Get initial path - check for redirect from 404.html
+  const getInitialPath = () => {
+    // Check if we have a stored path from 404.html redirect
+    const storedPath = sessionStorage.getItem('redirectPath');
+    if (storedPath) {
+      sessionStorage.removeItem('redirectPath');
+      // Extract path, search, and hash
+      const url = new URL(storedPath, window.location.origin);
+      const cleanPath = url.pathname + url.search + url.hash;
+      // Update URL to clean path
+      window.history.replaceState({}, '', cleanPath);
+      return url.pathname;
     }
-    return path;
+    return window.location.pathname;
   };
 
-  const [currentPath, setCurrentPath] = useState(getPath());
+  const [currentPath, setCurrentPath] = useState(getInitialPath());
 
   useEffect(() => {
     const handleLocationChange = () => {
-      setCurrentPath(getPath());
+      const path = window.location.pathname;
+      setCurrentPath(path);
       
       // If navigating to home with a hash, scroll to section after a brief delay
-      const path = getPath();
       if (path === '/' && window.location.hash) {
         setTimeout(() => {
           const targetId = window.location.hash.replace('#', '');
