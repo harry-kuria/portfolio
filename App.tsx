@@ -4,14 +4,30 @@ import Home from './pages/Home';
 import BlogPage from './pages/BlogPage';
 
 const App: React.FC = () => {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  // Handle GitHub Pages 404 redirect
+  const getPath = () => {
+    let path = window.location.pathname;
+    // Handle GitHub Pages SPA redirect format: /?/blog
+    if (path === '/' && window.location.search) {
+      const search = window.location.search.slice(1); // Remove '?'
+      if (search.startsWith('/')) {
+        path = search;
+        // Clean up URL
+        window.history.replaceState({}, '', path);
+      }
+    }
+    return path;
+  };
+
+  const [currentPath, setCurrentPath] = useState(getPath());
 
   useEffect(() => {
     const handleLocationChange = () => {
-      setCurrentPath(window.location.pathname);
+      setCurrentPath(getPath());
       
       // If navigating to home with a hash, scroll to section after a brief delay
-      if (window.location.pathname === '/' && window.location.hash) {
+      const path = getPath();
+      if (path === '/' && window.location.hash) {
         setTimeout(() => {
           const targetId = window.location.hash.replace('#', '');
           const element = document.getElementById(targetId);
