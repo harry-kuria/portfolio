@@ -1,23 +1,35 @@
-
 import React from 'react';
 import { EXPERIENCES } from '../constants';
 import { Briefcase, MapPin, Calendar } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-32 bg-slate-950">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
-        <div className="mb-20 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20 text-center"
+        >
           <h2 className="text-cyan-500 font-black uppercase tracking-widest text-sm mb-4">The Journey</h2>
           <h3 className="text-4xl md:text-5xl font-black text-white italic">Career Timeline.</h3>
-        </div>
+        </motion.div>
 
         <div className="space-y-16">
           {EXPERIENCES.map((exp, idx) => (
-            <div key={idx} className="group relative pl-12 border-l border-white/10 hover:border-blue-500 transition-all duration-500">
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="group relative pl-12 border-l border-white/10 hover:border-blue-500 transition-all duration-500"
+            >
               {/* Timeline Indicator */}
               <div className="absolute -left-[5px] top-0 w-[10px] h-[10px] rounded-full bg-slate-950 border-2 border-slate-700 group-hover:bg-blue-500 group-hover:border-blue-400 group-hover:scale-150 transition-all"></div>
-              
+
               <div className="mb-4 flex flex-wrap items-center gap-4">
                 <span className="px-4 py-1 bg-blue-500/10 text-blue-400 text-xs font-black rounded-full uppercase tracking-tighter border border-blue-500/20">
                   {exp.type}
@@ -46,7 +58,7 @@ const Experience: React.FC = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

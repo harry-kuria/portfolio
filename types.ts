@@ -16,6 +16,15 @@ export interface Project {
   details: string[];
   video?: string;
   thumbnail?: string;
+  caseStudy?: CaseStudy;
+}
+
+export interface CaseStudy {
+  title: string;
+  challenge: string;
+  solution: string;
+  results: string[];
+  techStack?: string[];
 }
 
 export interface SkillCategory {

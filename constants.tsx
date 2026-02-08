@@ -100,7 +100,17 @@ export const PROJECTS: Project[] = [
       "Architected secure, HIPAA-compliant medical data storage systems.",
       "Optimized database queries achieving millisecond response times.",
       "Scalable backend infrastructure handling high-volume healthcare operations."
-    ]
+    ],
+    caseStudy: {
+      title: "Why we built Clinix Plus",
+      challenge: "Medical practices were drowning in operational chaos caused by disjointed manual tools. Patient data was fragmented across paper records and spreadsheets, leading to revenue leakage, lack of access control, and dangerous delays in patient history retrieval.",
+      solution: "Built 'Clinix Plus', a comprehensive Hospital Management System (HMS) that centralizes the entire patient journey—from triage to billing. Implemented strict Role-Based Access Control (RBAC) to ensure data privacy (e.g., receptionists cannot view medical notes). Integrated M-Pesa for automated financial tracking to stop revenue leakage.",
+      results: [
+        "Digitized the entire workflow: Registration → Triage → Consultation → Pharmacy → Billing.",
+        "Eliminated unauthorized data access via granular RBAC guards.",
+        "Reduced revenue leakage by 100% through automated M-Pesa integration."
+      ]
+    }
   },
   {
     title: "Medislot",
@@ -122,7 +132,17 @@ export const PROJECTS: Project[] = [
     details: [
       "Bidirectional delta synchronization for offline capabilities.",
       "Ultra-low latency transaction processing."
-    ]
+    ],
+    caseStudy: {
+      title: "Zero Downtime using Local-First Architecture",
+      challenge: "In target markets with intermittent connectivity (2G/3G), 40% of transactions were failing or timing out, leading to user churn and operational reconciliation nightmares. In instances where the backend was down, one could not use our services via the mobile app.",
+      solution: "Architected a 'Local-First' sync engine using Go. Implemented a custom conflict resolution strategy based on vector clocks to handle multi-device updates. The mobile app writes to a local encrypted SQLite DB relative to the UI, while a background worker manages potential conflicts and syncs with the backend. The app Syncs after every 10 minutes to check for uodates from the server and only pulls the updated records from the server.",
+      results: [
+        "Reduced transaction failure rate from 40% to <0.1%.",
+        "Decreased backend server load by 40% by batching sync requests.",
+        "Enabled full app functionality in completely offline mode."
+      ]
+    }
   },
   {
     title: "SpotX UI Engine",
