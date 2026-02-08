@@ -57,8 +57,11 @@ export const EXPERIENCES: Experience[] = [
     type: "Full-time",
     description: [
       "Led WaaS (Wallet as a Service) mobile platform with offline-first architecture.",
-      "Built high-performance protobuf communication layers.",
-      "Engineered smart synchronization algorithms for low-bandwidth environments."
+      "Built high-performance backend sync microservice using Go.",
+      "Engineered Backend-for-Backend service for low-bandwidth mobile environments using Go.",
+      "Background Sync in mobile using Kotlin for offline.",
+      "Integrated NFC to support NFC payments.",
+      "Offline Storage using Room database.",
     ]
   },
   {
