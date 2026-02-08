@@ -133,7 +133,8 @@ export const PROJECTS: Project[] = [
       "Kotlin-first, Compose-native SDK with minimal API and maximum clarity.",
       "Highlight UI elements with customizable shapes and Material 3 styling.",
       "Simple, composable API for elegant onboarding experiences."
-    ]
+    ],
+    video: "https://youtube.com/shorts/A54Ixhb-FgU?feature=share"
   },
   {
     title: "Veritalk",
