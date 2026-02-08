@@ -21,6 +21,7 @@ export interface Project {
 
 export interface CaseStudy {
   title: string;
+  link?: string;
   challenge: string;
   solution: string;
   results: string[];

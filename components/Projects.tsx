@@ -145,13 +145,25 @@ const Projects: React.FC = () => {
                   </div>
 
                   {project.caseStudy && (
-                    <button
-                      onClick={() => setSelectedCaseStudy(project.caseStudy || null)}
-                      className="mt-2 w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all flex items-center justify-center group/btn"
-                    >
-                      Read Case Study
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                    project.caseStudy.link ? (
+                      <a
+                        href={project.caseStudy.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all flex items-center justify-center group/btn"
+                      >
+                        Read Case Study
+                        <ArrowUpRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => setSelectedCaseStudy(project.caseStudy || null)}
+                        className="mt-2 w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all flex items-center justify-center group/btn"
+                      >
+                        Read Case Study
+                        <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                      </button>
+                    )
                   )}
                 </div>
               </div>
