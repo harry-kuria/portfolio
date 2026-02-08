@@ -155,7 +155,17 @@ export const PROJECTS: Project[] = [
       "Simple, composable API for elegant onboarding experiences."
     ],
     video: "https://youtube.com/shorts/A54Ixhb-FgU?feature=share",
-    thumbnail: "https://i.ytimg.com/vi/A54Ixhb-FgU/hqdefault.jpg"
+    thumbnail: "https://i.ytimg.com/vi/A54Ixhb-FgU/hqdefault.jpg",
+    caseStudy: {
+      title: "SpotX: The 4-Line Solution to Onboarding Tours in Jetpack Compose",
+      challenge: "Implementing user onboarding tours in Jetpack Compose was repetitive and error-prone. Developers had to write custom `Canvas` overlays and calculate coordinates manually for every single screen, leading to spaghetti code and inconsistent UI designs across the app.",
+      solution: "Built SpotX, a declarative SDK that abstracts the complexity of target highlighting. It uses a Fluent API pattern, allowing developers to add a beautiful, Material 3-styled spotlight to any Composable with just 4 lines of code. It handles the geometry calculations and animations internally.",
+      results: [
+        "Reduced onboarding implementation time by 90% (from hours to minutes).",
+        "Eliminated 100% of manual coordinate calculations.",
+        "Adopted by multiple internal projects for consistent UX."
+      ]
+    }
   },
   {
     title: "Veritalk",
