@@ -20,16 +20,16 @@ const Hero: React.FC = () => {
               </span>
               Building experiences through lines of code
             </div>
-            
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tight">
               I Create seamless experiences that leave a lasting impression
             </h1>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-400 leading-[1.3] mb-8 tracking-tight">
               from <span className="text-[#00D9FF] drop-shadow-[0_0_20px_rgba(0,217,255,0.9)]">Backend</span> to <span className="text-[#61DAFB] drop-shadow-[0_0_20px_rgba(97,218,251,0.9)]">Frontend</span> to <span className="text-[#A855F7] drop-shadow-[0_0_20px_rgba(168,85,247,0.9)]">Mobile</span>
             </h2>
-            
+
             <p className="text-xl md:text-2xl text-slate-400 mb-10 leading-relaxed font-medium max-w-2xl">
-              I'm <span className="text-white font-bold">{PERSONAL_INFO.firstName}</span>, a Software Engineer specialized in <span className="text-blue-400">Go Backend</span> systems, <span className="text-cyan-400">Mobile Architectures</span>, and high-end <span className="text-white">React JS</span> web interfaces.
+              Hey there👋 I'm <span className="text-white font-bold">{PERSONAL_INFO.firstName}</span>, a Software Engineer specialized in <span className="text-blue-400">Go Backend</span> systems, <span className="text-cyan-400">Mobile Architectures</span>, and high-end <span className="text-white">React JS</span> web interfaces.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center space-y-5 sm:space-y-0 sm:space-x-6">
@@ -53,9 +53,9 @@ const Hero: React.FC = () => {
               {/* Image Frame with Glow */}
               <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-[2.5rem] opacity-30 blur-2xl"></div>
               <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-white/10 shadow-3xl bg-slate-900">
-                <img 
-                  src={IMAGES.hero} 
-                  alt={PERSONAL_INFO.name} 
+                <img
+                  src={IMAGES.hero}
+                  alt={PERSONAL_INFO.name}
                   className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105"
                 />
               </div>
@@ -72,10 +72,10 @@ const Hero: React.FC = () => {
               </div>
 
               <div className="absolute top-10 -right-8 glass-card p-4 rounded-2xl shadow-2xl border-white/10 hidden sm:block">
-                 <div className="flex items-center space-x-2">
-                    <Cpu className="w-5 h-5 text-cyan-400" />
-                    <span className="text-sm font-bold text-slate-300">Go / React / Kotlin</span>
-                 </div>
+                <div className="flex items-center space-x-2">
+                  <Cpu className="w-5 h-5 text-cyan-400" />
+                  <span className="text-sm font-bold text-slate-300">Go / React / Kotlin</span>
+                </div>
               </div>
             </div>
           </div>
