@@ -40,7 +40,7 @@ export const EXPERIENCES: Experience[] = [
   {
     company: "Craft Silicon",
     role: "Android Engineer",
-    period: "Jun 2024 – Present",
+    period: "Dec 2025 – Present",
     location: "Nairobi, Kenya",
     type: "Full-time",
     description: [
@@ -52,7 +52,7 @@ export const EXPERIENCES: Experience[] = [
   {
     company: "Terra Softworks",
     role: "Senior Android Engineer",
-    period: "Jun 2024 – Present",
+    period: "Jun 2024 – Dec 2025",
     location: "Nairobi, Kenya",
     type: "Full-time",
     description: [
@@ -63,20 +63,21 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     company: "Clinix-Plus",
-    role: "Backend Engineer (Go)",
-    period: "2023 - 2024",
+    role: "Software Engineer (Go, React JS)",
+    period: "Mar 2023 - Jul 2024",
     location: "Nairobi, Kenya",
     type: "Full-time",
     description: [
       "Developed scalable REST APIs in Go for health-tech solutions.",
       "Architected secure, compliant medical data storage systems.",
-      "Optimized database queries for millisecond response times."
+      "Optimized database queries for millisecond response times",
+      "Designed and maintained Clinix-plus UI"
     ]
   },
   {
     company: "Afiagate",
     role: "Mobile & Backend Engineer",
-    period: "Feb 2023 – Jul 2024",
+    period: "Jan 2023 – Jul 2024",
     location: "Nairobi, Kenya",
     type: "Full-time",
     description: [
