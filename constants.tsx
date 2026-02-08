@@ -114,7 +114,7 @@ export const PROJECTS: Project[] = [
     ],
     video: "https://youtube.com/shorts/9sSQPnJcLeE?feature=share"
   },
-  
+
   {
     title: "WaaS Platform",
     description: "A robust Wallet as a Service hybrid mobile platform powered by Go and Protobuf.",
@@ -134,7 +134,8 @@ export const PROJECTS: Project[] = [
       "Highlight UI elements with customizable shapes and Material 3 styling.",
       "Simple, composable API for elegant onboarding experiences."
     ],
-    video: "https://youtube.com/shorts/A54Ixhb-FgU?feature=share"
+    video: "https://youtube.com/shorts/A54Ixhb-FgU?feature=share",
+    thumbnail: "https://i.ytimg.com/vi/A54Ixhb-FgU/hqdefault.jpg"
   },
   {
     title: "Veritalk",

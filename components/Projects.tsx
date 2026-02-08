@@ -64,9 +64,9 @@ const Projects: React.FC = () => {
                       </button>
                     )}
                     {project.link ? (
-                      <a 
-                        href={project.link} 
-                        target="_blank" 
+                      <a
+                        href={project.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="p-4 rounded-full bg-white/5 text-slate-400 hover:text-white hover:bg-blue-600 transition-all"
                       >
@@ -90,15 +90,15 @@ const Projects: React.FC = () => {
                   <ArrowUpRight className="ml-2 w-6 h-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                 </h4>
                 <p className="text-slate-400 mb-8 text-lg font-medium leading-relaxed">{project.description}</p>
-                
+
                 {/* Video Thumbnail Preview */}
                 {project.video && isYouTubeUrl(project.video) && (
-                  <div 
+                  <div
                     className="relative mb-8 rounded-2xl overflow-hidden border border-white/10 cursor-pointer group/thumb"
                     onClick={() => setSelectedVideo(project.video || null)}
                   >
-                    <img 
-                      src={getYouTubeThumbnail(project.video) || ''} 
+                    <img
+                      src={project.thumbnail || getYouTubeThumbnail(project.video) || ''}
                       alt={`${project.title} video thumbnail`}
                       className="w-full h-48 object-cover group-hover/thumb:scale-105 transition-transform duration-300"
                     />
@@ -109,7 +109,7 @@ const Projects: React.FC = () => {
                     </div>
                   </div>
                 )}
-                
+
                 <div className="space-y-4 mb-10">
                   {project.details.map((detail, dIdx) => (
                     <div key={dIdx} className="flex items-start text-slate-500 font-medium">
@@ -134,11 +134,11 @@ const Projects: React.FC = () => {
 
       {/* Video Modal */}
       {selectedVideo && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
           onClick={() => setSelectedVideo(null)}
         >
-          <div 
+          <div
             className="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-white/10"
             onClick={(e) => e.stopPropagation()}
           >

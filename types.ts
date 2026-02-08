@@ -15,6 +15,7 @@ export interface Project {
   link?: string;
   details: string[];
   video?: string;
+  thumbnail?: string;
 }
 
 export interface SkillCategory {
