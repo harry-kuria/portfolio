@@ -57,7 +57,7 @@ const Home: React.FC = () => {
                   Architecting for <span className="text-gradient">Performance</span>.
                 </h3>
                 <p className="text-slate-400 text-xl leading-relaxed mb-10 font-medium">
-                  Based in Nairobi, I am a software engineer focused on building
+                  Based in Nairobi, I am a software developer focused on building
                   high-throughput backend ecosystems and sleek, native mobile experiences.
                   Whether it's a Go-based microservice or a React-powered dashboard,
                   I prioritize code clarity, system resilience, and user delight.
