@@ -56,51 +56,47 @@ export const Hero: React.FC = () => {
           {/* ============================================== */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left pt-2 lg:pt-0 max-w-[680px]">
             {/* EYEBROW PILL */}
-            <div className="inline-flex items-center self-start px-4 py-1.5 rounded-full bg-purple-50/80 border border-purple-200/60 shadow-sm shadow-purple-500/5 mb-5">
+            <div className="inline-flex items-center self-start px-4 py-1.5 rounded-full bg-purple-50/90 border border-purple-200/80 shadow-sm shadow-purple-500/5 mb-5">
               <span className="relative flex h-2 w-2 mr-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-600" />
               </span>
-              <span className="text-purple-800 text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase font-sans">
-                Building experiences through lines of code
+              <span className="text-purple-900 text-[11px] sm:text-xs font-bold tracking-[0.16em] uppercase font-sans">
+                Harrison Thiong'o Kuria • Software Developer
               </span>
             </div>
 
             {/* MAIN HEADLINE */}
-            <h1 className="text-[40px] sm:text-[50px] md:text-[58px] lg:text-[64px] xl:text-[72px] font-black text-slate-950 leading-[1.08] tracking-[-0.035em] mb-4 font-sans">
-              <span className="block whitespace-nowrap">
-                I create{' '}
+            <h1 className="text-[36px] sm:text-[46px] md:text-[54px] lg:text-[60px] xl:text-[66px] font-black text-slate-950 leading-[1.1] tracking-[-0.035em] mb-4 font-sans">
+              <span>
+                Engineering{' '}
                 <span className="hero-highlight-word">
-                  <span className="hero-highlight-gradient">seamless</span>
+                  <span className="hero-highlight-gradient">Mobile</span>
                 </span>
+                {' '}systems
               </span>
-              <span className="block whitespace-nowrap">
-                experiences that
-              </span>
-              <span className="block whitespace-nowrap">
-                leave a{' '}
+              <span className="block mt-1">
+                &amp; resilient{' '}
                 <span className="hero-highlight-word">
-                  <span className="hero-highlight-gradient">lasting</span>
+                  <span className="hero-highlight-gradient">Go backends</span>
                 </span>
-              </span>
-              <span className="block whitespace-nowrap">
-                impression.
+                .
               </span>
             </h1>
 
             {/* SUBHEADLINE */}
-            <div className="text-xl sm:text-2xl lg:text-[26px] font-extrabold tracking-tight mb-4 flex flex-wrap items-center gap-x-2 font-sans">
+            <div className="text-lg sm:text-xl lg:text-[22px] font-extrabold tracking-tight mb-4 flex flex-wrap items-center gap-x-2 font-sans">
               <span className="text-slate-900 font-bold">from</span>
-              <span className="text-[#0284C7] font-extrabold">Backend</span>
+              <span className="text-purple-600 font-extrabold">Mobile Engineering</span>
               <span className="text-slate-400 font-medium">to</span>
-              <span className="text-purple-600 font-extrabold">Frontend</span>
+              <span className="text-[#0284C7] font-extrabold">Go Backends</span>
               <span className="text-slate-400 font-medium">to</span>
-              <span className="text-violet-700 font-extrabold">Mobile</span>
+              <span className="text-violet-700 font-extrabold">Distributed Systems</span>
             </div>
 
             {/* DESCRIPTION */}
-            <p className="text-slate-500 text-base sm:text-lg leading-relaxed max-w-[600px] font-normal mb-6 font-sans">
-              I design and build modern, scalable applications that solve real problems and create meaningful impact.
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-[620px] font-normal mb-6 font-sans">
+              Creator of <span className="font-semibold text-slate-900">BomaPay</span> (live on Google Play) and <span className="font-semibold text-slate-900">SpotX</span> (Android SDK on Maven Central). Focused on modern mobile architecture, powered by high-concurrency Go microservices.
             </p>
 
             {/* CTA AREA */}
