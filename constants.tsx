@@ -2,6 +2,7 @@
 import heroImage from './assets/harry2.jpeg';
 import aboutImage from './assets/harry3.jpeg';
 import originalPhoto from './assets/MOK_0369 (2).JPG';
+import bomaImage from './assets/boma1.png';
 const profileImage = originalPhoto;
 
 import { Experience, Project, SkillCategory } from './types';
@@ -93,6 +94,81 @@ export const EXPERIENCES: Experience[] = [
 
 export const PROJECTS: Project[] = [
   {
+    title: "BomaPay",
+    description: "Full-stack Android fintech & proptech platform powered by a high-concurrency Go backend and native Kotlin client, enabling tenants to pay rent flexibly in micro-installments ('in bits') with real-time transaction feasibility, M-Pesa Daraja STK Push, and roommate bill splitting.",
+    tags: ["Go", "Kotlin", "Android", "M-Pesa Daraja", "Rent in Bits", "STK Push", "Fintech", "Google Play"],
+    link: "https://play.google.com/store/apps/details?id=com.bomapay.app",
+    playStore: "https://play.google.com/store/apps/details?id=com.bomapay.app",
+    image: bomaImage,
+    details: [
+      "High-Performance Go Backend: Built a concurrent Go microservice orchestrating Safaricom M-Pesa Daraja STK Push triggers, asynchronous webhook callbacks, and idempotent ledger transactions.",
+      "Flexible 'Pay in Bits' Engine: Empowers tenants to break lump-sum monthly rent into manageable micro-payments as cash flows in.",
+      "Real-Time Transaction Feasibility: Instant M-Pesa STK Push verification showing cumulative progress toward monthly rent targets and verified digital receipts.",
+      "Native Android Architecture: Engineered with Kotlin, Jetpack Compose, Coroutines, and Flow for responsive, 60fps UI.",
+      "Smart Roommate Bill Splitting: Multi-party shared expense division for utilities (electricity, water, Wi-Fi) with automated ledgers.",
+      "Live Production App: Published and maintained on Google Play Store (com.bomapay.app)."
+    ],
+    caseStudy: {
+      title: "BomaPay: Full-Stack Micro-Installment Rent Platform Powered by Go & Native Android",
+      image: bomaImage,
+      challenge: "In Kenya's dynamic gig and urban economy, tenants rarely receive lump-sum income that lines up neatly with rigid month-end rent deadlines. Forcing lump-sum payments leads to cash-flow anxiety, defaults, and awkward landlord disputes. Furthermore, when tenants attempted to pay rent 'in bits' via standard Paybill numbers, there was zero transaction feasibility—manual bookkeeping caused lost payments, miscalculated balances, and endless reconciliation chaos.",
+      solution: "Architected and shipped an end-to-end system: a high-concurrency backend written in Go and a modern native Android client in Kotlin and Jetpack Compose. The Go backend interfaces directly with Safaricom's M-Pesa Daraja API, ensuring transaction idempotency, cryptographic callback signature verification, and sub-millisecond payment dispatch. The Kotlin client visualizes financial feasibility in real time, backed by Room DB for offline-first resilience.",
+      results: [
+        "Enabled true financial flexibility by allowing tenants to pay rent in daily/weekly micro-installments without manual calculation friction.",
+        "Engineered reliable Go backend handling concurrent M-Pesa STK callbacks with zero duplicate transaction processing.",
+        "Delivered 100% transaction feasibility and visibility: both tenant and property manager see verified, real-time balance updates on every STK push callback.",
+        "Shipped to the Google Play Store (com.bomapay.app) adhering to strict Play Console security, data safety, and target SDK guidelines."
+      ],
+      techStack: ["Go", "Kotlin", "Jetpack Compose", "M-Pesa Daraja STK Push", "Goroutines & Channels", "Room DB", "Google Play Console"]
+    }
+  },
+  {
+    title: "SpotX UI Engine",
+    description: "Modern onboarding tours SDK for Jetpack Compose, officially published on Maven Central (io.github.harry-kuria:spotx). Spotlight any composable with elegant, Material 3-styled overlays—built the Compose way: declarative, fast, and a joy to use.",
+    tags: ["Kotlin", "Jetpack Compose", "Maven Central", "SDK", "Material 3"],
+    link: "https://harry-kuria.github.io/SpotX/",
+    mavenCentral: "https://central.sonatype.com/artifact/io.github.harry-kuria/spotx",
+    details: [
+      "Published to Maven Central (io.github.harry-kuria:spotx): Globally distributed with strict Sonatype OSSRH GPG signing and POM metadata compliance.",
+      "4-Line Integration: Simple Gradle implementation allowing Android developers worldwide to add onboarding spotlights in minutes.",
+      "Kotlin-First & Compose-Native: Declarative architecture with zero legacy Android View baggage.",
+      "Customizable Material 3 Overlays: Dynamic target highlighting, custom scrims, shapes, and smooth animated transitions."
+    ],
+    video: "https://youtube.com/shorts/A54Ixhb-FgU?feature=share",
+    thumbnail: "https://i.ytimg.com/vi/A54Ixhb-FgU/hqdefault.jpg",
+    caseStudy: {
+      title: "SpotX: The 4-Line Solution to Onboarding Tours in Jetpack Compose",
+      challenge: "Implementing user onboarding tours in Jetpack Compose was repetitive and error-prone. Developers had to write custom `Canvas` overlays and calculate coordinates manually for every single screen, leading to spaghetti code and inconsistent UI designs across the app.",
+      solution: "Built SpotX, a declarative SDK that abstracts the complexity of target highlighting. It uses a Fluent API pattern, allowing developers to add a beautiful, Material 3-styled spotlight to any Composable with just 4 lines of code. Shipped directly to Maven Central so any Android team can integrate it via standard Gradle dependencies.",
+      results: [
+        "Published and verified on Maven Central under the verified namespace io.github.harry-kuria.",
+        "Reduced onboarding implementation time by 90% (from hours to minutes).",
+        "Eliminated 100% of manual coordinate and canvas math.",
+        "Adopted by multiple production apps and open-source Android projects."
+      ],
+      techStack: ["Kotlin", "Jetpack Compose", "Maven Central", "Sonatype OSSRH", "Gradle", "GPG Signing"]
+    }
+  },
+  {
+    title: "WaaS Platform",
+    description: "A robust Wallet as a Service hybrid mobile platform powered by Go and Protobuf.",
+    tags: ["Go", "Kotlin", "Protobuf", "Room DB", "SQLite"],
+    details: [
+      "Bidirectional delta synchronization for offline capabilities.",
+      "Ultra-low latency transaction processing."
+    ],
+    caseStudy: {
+      title: "Zero Downtime using Local-First Architecture",
+      challenge: "In target markets with intermittent connectivity (2G/3G), 40% of transactions were failing or timing out, leading to user churn and operational reconciliation nightmares. In instances where the backend was down, one could not use our services via the mobile app.",
+      solution: "Architected a 'Local-First' sync engine using Go. Implemented a custom conflict resolution strategy based on vector clocks to handle multi-device updates. The mobile app writes to a local encrypted SQLite DB relative to the UI, while a background worker manages potential conflicts and syncs with the backend. The app Syncs after every 10 minutes to check for uodates from the server and only pulls the updated records from the server.",
+      results: [
+        "Reduced transaction failure rate from 40% to <0.1%.",
+        "Decreased backend server load by 40% by batching sync requests.",
+        "Enabled full app functionality in completely offline mode."
+      ]
+    }
+  },
+  {
     title: "Clinix Plus",
     description: "Comprehensive healthcare management platform with secure medical data storage and scalable REST APIs built in Go.",
     tags: ["Go", "React JS", "REST API", "PostgreSQL", "Healthcare"],
@@ -124,49 +200,6 @@ export const PROJECTS: Project[] = [
       "Practitioners can book medical facilities for their practice."
     ],
     video: "https://youtube.com/shorts/9sSQPnJcLeE?feature=share"
-  },
-
-  {
-    title: "WaaS Platform",
-    description: "A robust Wallet as a Service hybrid mobile platform powered by Go and Protobuf.",
-    tags: ["Go", "Kotlin", "Protobuf", "Room DB", "SQLite"],
-    details: [
-      "Bidirectional delta synchronization for offline capabilities.",
-      "Ultra-low latency transaction processing."
-    ],
-    caseStudy: {
-      title: "Zero Downtime using Local-First Architecture",
-      challenge: "In target markets with intermittent connectivity (2G/3G), 40% of transactions were failing or timing out, leading to user churn and operational reconciliation nightmares. In instances where the backend was down, one could not use our services via the mobile app.",
-      solution: "Architected a 'Local-First' sync engine using Go. Implemented a custom conflict resolution strategy based on vector clocks to handle multi-device updates. The mobile app writes to a local encrypted SQLite DB relative to the UI, while a background worker manages potential conflicts and syncs with the backend. The app Syncs after every 10 minutes to check for uodates from the server and only pulls the updated records from the server.",
-      results: [
-        "Reduced transaction failure rate from 40% to <0.1%.",
-        "Decreased backend server load by 40% by batching sync requests.",
-        "Enabled full app functionality in completely offline mode."
-      ]
-    }
-  },
-  {
-    title: "SpotX UI Engine",
-    description: "Modern onboarding tours SDK for Jetpack Compose. Spotlight any composable with elegant, Material 3-styled overlays—built the Compose way: declarative, fast, and a joy to use.",
-    tags: ["Kotlin", "Jetpack Compose", "SDK"],
-    link: "https://harry-kuria.github.io/SpotX/",
-    details: [
-      "Kotlin-first, Compose-native SDK with minimal API and maximum clarity.",
-      "Highlight UI elements with customizable shapes and Material 3 styling.",
-      "Simple, composable API for elegant onboarding experiences."
-    ],
-    video: "https://youtube.com/shorts/A54Ixhb-FgU?feature=share",
-    thumbnail: "https://i.ytimg.com/vi/A54Ixhb-FgU/hqdefault.jpg",
-    caseStudy: {
-      title: "SpotX: The 4-Line Solution to Onboarding Tours in Jetpack Compose",
-      challenge: "Implementing user onboarding tours in Jetpack Compose was repetitive and error-prone. Developers had to write custom `Canvas` overlays and calculate coordinates manually for every single screen, leading to spaghetti code and inconsistent UI designs across the app.",
-      solution: "Built SpotX, a declarative SDK that abstracts the complexity of target highlighting. It uses a Fluent API pattern, allowing developers to add a beautiful, Material 3-styled spotlight to any Composable with just 4 lines of code. It handles the geometry calculations and animations internally.",
-      results: [
-        "Reduced onboarding implementation time by 90% (from hours to minutes).",
-        "Eliminated 100% of manual coordinate calculations.",
-        "Adopted by multiple internal projects for consistent UX."
-      ]
-    }
   },
   {
     title: "Veritalk",

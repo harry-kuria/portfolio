@@ -13,9 +13,12 @@ export interface Project {
   description: string;
   tags: string[];
   link?: string;
+  playStore?: string;
+  mavenCentral?: string;
   details: string[];
   video?: string;
   thumbnail?: string;
+  image?: string;
   caseStudy?: CaseStudy;
 }
 
@@ -26,6 +29,7 @@ export interface CaseStudy {
   solution: string;
   results: string[];
   techStack?: string[];
+  image?: string;
 }
 
 export interface SkillCategory {
