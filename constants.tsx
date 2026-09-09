@@ -58,12 +58,11 @@ export const EXPERIENCES: Experience[] = [
     location: "Nairobi, Kenya",
     type: "Full-time",
     description: [
-      "Led WaaS (Wallet as a Service) mobile platform with offline-first architecture.",
-      "Built high-performance backend sync microservice using Go.",
-      "Engineered Backend-for-Backend service for low-bandwidth mobile environments using Go.",
-      "Background Sync in mobile using Kotlin for offline.",
-      "Integrated NFC to support NFC payments.",
-      "Offline Storage using Room database.",
+      "Led Wallet as a Service (WaaS) mobile architecture with offline-first design using Kotlin & Room DB.",
+      "Engineered high-performance sync microservice in Go to handle asynchronous data reconciliation.",
+      "Architected bidirectional delta synchronization using Protobuf, reducing transaction failure rates from 40% to <0.1% in low-bandwidth 2G/3G zones.",
+      "Implemented hardware NFC integration for contactless point-of-sale transactions.",
+      "Built resilient background workers to manage conflict resolution and offline transaction queues."
     ]
   },
   {
@@ -147,25 +146,6 @@ export const PROJECTS: Project[] = [
         "Adopted by multiple production apps and open-source Android projects."
       ],
       techStack: ["Kotlin", "Jetpack Compose", "Maven Central", "Sonatype OSSRH", "Gradle", "GPG Signing"]
-    }
-  },
-  {
-    title: "WaaS Platform",
-    description: "A robust Wallet as a Service hybrid mobile platform powered by Go and Protobuf.",
-    tags: ["Go", "Kotlin", "Protobuf", "Room DB", "SQLite"],
-    details: [
-      "Bidirectional delta synchronization for offline capabilities.",
-      "Ultra-low latency transaction processing."
-    ],
-    caseStudy: {
-      title: "Zero Downtime using Local-First Architecture",
-      challenge: "In target markets with intermittent connectivity (2G/3G), 40% of transactions were failing or timing out, leading to user churn and operational reconciliation nightmares. In instances where the backend was down, one could not use our services via the mobile app.",
-      solution: "Architected a 'Local-First' sync engine using Go. Implemented a custom conflict resolution strategy based on vector clocks to handle multi-device updates. The mobile app writes to a local encrypted SQLite DB relative to the UI, while a background worker manages potential conflicts and syncs with the backend. The app Syncs after every 10 minutes to check for uodates from the server and only pulls the updated records from the server.",
-      results: [
-        "Reduced transaction failure rate from 40% to <0.1%.",
-        "Decreased backend server load by 40% by batching sync requests.",
-        "Enabled full app functionality in completely offline mode."
-      ]
     }
   },
   {
