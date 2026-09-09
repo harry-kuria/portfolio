@@ -1,126 +1,221 @@
-import React from 'react';
-import { Github, Linkedin, Mail, ArrowRight, Terminal, Cpu } from 'lucide-react';
-import { PERSONAL_INFO, IMAGES } from '../constants';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { ArrowRight, Send, BarChart3 } from 'lucide-react';
+import { IMAGES } from '../constants';
+import TechCard from './TechCard';
+import FloatingCard from './FloatingCard';
+import Stats from './Stats';
 
-const Hero: React.FC = () => {
+export const Hero: React.FC = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setImageLoaded(true);
+    }
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-slate-950">
-      {/* Background Orbs */}
-      <div className="absolute top-[10%] right-[-5%] w-[40vw] h-[40vw] bg-blue-600/20 rounded-full blur-[120px] animate-pulse"></div>
-      <div className="absolute bottom-[-10%] left-[-5%] w-[30vw] h-[30vw] bg-cyan-600/10 rounded-full blur-[100px]"></div>
+    <section className="relative min-h-[92vh] lg:min-h-screen flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 overflow-hidden bg-white">
+      {/* ================================================== */}
+      {/* ATMOSPHERIC BACKGROUND GRADIENTS & GLOWS */}
+      {/* ================================================== */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
+        {/* Subtle lavender atmosphere across the hero */}
+        <div
+          className="absolute top-[-5%] right-[-5%] w-[65vw] h-[65vw] max-w-[850px] max-h-[850px] rounded-full blur-[140px] opacity-40"
+          style={{
+            background: 'radial-gradient(circle at 60% 40%, rgba(233, 213, 255, 0.70) 0%, rgba(216, 180, 254, 0.35) 45%, transparent 75%)',
+          }}
+        />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-7 text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold mb-8 tracking-widest uppercase"
-            >
-              <span className="relative flex h-2 w-2 mr-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+        {/* Soft lavender/purple ambient glow */}
+        <div
+          className="absolute top-[25%] right-[10%] w-[45vw] h-[45vw] max-w-[600px] max-h-[600px] rounded-full blur-[130px] opacity-35"
+          style={{
+            background: 'radial-gradient(circle, rgba(221, 214, 254, 0.60) 0%, rgba(192, 132, 252, 0.20) 50%, transparent 75%)',
+          }}
+        />
+
+        {/* Delicate ambient lavender highlight on left side */}
+        <div
+          className="absolute top-[15%] left-[-10%] w-[45vw] h-[45vw] max-w-[550px] max-h-[550px] rounded-full blur-[140px] opacity-30"
+          style={{
+            background: 'radial-gradient(circle, rgba(243, 232, 255, 0.75) 0%, rgba(233, 213, 255, 0.35) 50%, transparent 80%)',
+          }}
+        />
+      </div>
+
+      {/* ================================================== */}
+      {/* MAIN CONTAINER (TWO-COLUMN DESKTOP COMPOSITION) */}
+      {/* ================================================== */}
+      <div className="w-full relative z-10 pl-[5vw] pr-6 sm:pr-8 lg:pr-12 max-w-[1440px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* ============================================== */}
+          {/* LEFT COLUMN (52-55% WIDTH) */}
+          {/* ============================================== */}
+          <div className="lg:col-span-7 flex flex-col justify-center text-left pt-2 lg:pt-0 max-w-[680px]">
+            {/* EYEBROW PILL */}
+            <div className="inline-flex items-center self-start px-4 py-1.5 rounded-full bg-purple-50/80 border border-purple-200/60 shadow-sm shadow-purple-500/5 mb-5">
+              <span className="relative flex h-2 w-2 mr-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-600" />
               </span>
-              Building experiences through lines of code
-            </motion.div>
+              <span className="text-purple-800 text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase font-sans">
+                Building experiences through lines of code
+              </span>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6 tracking-tight"
-            >
-              I Create seamless experiences that leave a lasting impression
-            </motion.h1>
+            {/* MAIN HEADLINE */}
+            <h1 className="text-[40px] sm:text-[50px] md:text-[58px] lg:text-[64px] xl:text-[72px] font-black text-slate-950 leading-[1.08] tracking-[-0.035em] mb-4 font-sans">
+              <span className="block whitespace-nowrap">
+                I create{' '}
+                <span className="hero-highlight-word">
+                  <span className="hero-highlight-gradient">seamless</span>
+                </span>
+              </span>
+              <span className="block whitespace-nowrap">
+                experiences that
+              </span>
+              <span className="block whitespace-nowrap">
+                leave a{' '}
+                <span className="hero-highlight-word">
+                  <span className="hero-highlight-gradient">lasting</span>
+                </span>
+              </span>
+              <span className="block whitespace-nowrap">
+                impression.
+              </span>
+            </h1>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-400 leading-[1.3] mb-8 tracking-tight"
-            >
-              from <span className="text-[#00D9FF] drop-shadow-[0_0_20px_rgba(0,217,255,0.9)]">Backend</span> to <span className="text-[#61DAFB] drop-shadow-[0_0_20px_rgba(97,218,251,0.9)]">Frontend</span> to <span className="text-[#A855F7] drop-shadow-[0_0_20px_rgba(168,85,247,0.9)]">Mobile</span>
-            </motion.h2>
+            {/* SUBHEADLINE */}
+            <div className="text-xl sm:text-2xl lg:text-[26px] font-extrabold tracking-tight mb-4 flex flex-wrap items-center gap-x-2 font-sans">
+              <span className="text-slate-900 font-bold">from</span>
+              <span className="text-[#0284C7] font-extrabold">Backend</span>
+              <span className="text-slate-400 font-medium">to</span>
+              <span className="text-purple-600 font-extrabold">Frontend</span>
+              <span className="text-slate-400 font-medium">to</span>
+              <span className="text-violet-700 font-extrabold">Mobile</span>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-xl md:text-2xl text-slate-400 mb-10 leading-relaxed font-medium max-w-2xl"
-            >
-              Hey there👋 I'm <span className="text-white font-bold">{PERSONAL_INFO.firstName}</span>, a Software Engineer specialized in <span className="text-blue-400">Go Backend</span> systems, <span className="text-cyan-400">Mobile Architectures</span>, and high-end <span className="text-white">React JS</span> web interfaces.
-            </motion.p>
+            {/* DESCRIPTION */}
+            <p className="text-slate-500 text-base sm:text-lg leading-relaxed max-w-[600px] font-normal mb-6 font-sans">
+              I design and build modern, scalable applications that solve real problems and create meaningful impact.
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center space-y-5 sm:space-y-0 sm:space-x-6"
-            >
-              <a href="#projects" className="w-full sm:w-auto px-10 py-5 bg-white text-slate-950 rounded-2xl font-black shadow-2xl shadow-white/5 hover:bg-blue-500 hover:text-white hover:translate-y-[-4px] transition-all flex items-center justify-center group active:scale-95">
-                Explore Work
-                <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            {/* CTA AREA */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-5 mb-7">
+              {/* Primary Button */}
+              <a
+                href="#projects"
+                className="group px-7 py-3.5 rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-violet-600 text-white font-semibold text-base shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/35 hover:-translate-y-0.5 active:scale-95 transition-all flex items-center justify-center space-x-2.5"
+              >
+                <span>View My Work</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
+              {/* Secondary Button */}
+              <a
+                href="#contact"
+                className="px-7 py-3.5 rounded-full bg-white/90 backdrop-blur-sm text-purple-700 font-semibold text-base border border-purple-200/90 shadow-sm hover:shadow-md hover:bg-purple-50/50 hover:border-purple-300 hover:-translate-y-0.5 active:scale-95 transition-all flex items-center justify-center space-x-2"
+              >
+                <Send className="w-4 h-4 text-purple-600" />
+                <span>Let's Connect</span>
+              </a>
 
-              <div className="flex items-center space-x-5 pt-4 sm:pt-0">
-                <a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" className="p-4 bg-slate-900/50 border border-white/5 rounded-2xl text-slate-400 hover:text-white hover:border-white/20 transition-all hover:bg-slate-800">
-                  <Github className="w-7 h-7" />
-                </a>
-                <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noopener noreferrer" className="p-4 bg-slate-900/50 border border-white/5 rounded-2xl text-slate-400 hover:text-white hover:border-white/20 transition-all hover:bg-slate-800">
-                  <Linkedin className="w-7 h-7" />
-                </a>
+              {/* Status Indicator */}
+              <div className="flex items-center space-x-2 pl-2 sm:pl-3 py-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                </span>
+                <span className="text-slate-600 font-medium text-sm sm:text-base">
+                  Available for opportunities
+                </span>
               </div>
-            </motion.div>
+            </div>
+
+            {/* STATS SECTION (DESKTOP: POSITIONED ON LEFT COLUMN) */}
+            <div className="hidden lg:block">
+              <Stats className="max-w-[600px]" />
+            </div>
           </div>
 
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end mt-12 lg:mt-0">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-[300px] h-[400px] sm:w-[400px] sm:h-[520px] animate-float"
-            >
-              {/* Image Frame with Glow */}
-              <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-[2.5rem] opacity-30 blur-2xl"></div>
-              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-white/10 shadow-3xl bg-slate-900">
-                <img
-                  src={IMAGES.hero}
-                  alt={PERSONAL_INFO.name}
-                  className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105"
+          {/* ============================================== */}
+          {/* RIGHT COLUMN (42-46% VIEWPORT - PORTRAIT & CARDS) */}
+          {/* ============================================== */}
+          <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end mt-10 lg:mt-0">
+            <div className="relative w-full max-w-[430px] sm:max-w-[470px] lg:max-w-[500px] xl:max-w-[540px] flex justify-center items-end">
+              {/* Large soft purple/lavender glow BEHIND the photograph extending beyond frame */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[160%] -z-10 pointer-events-none">
+                <div
+                  className="w-full h-full rounded-full blur-[90px] opacity-80"
+                  style={{
+                    background:
+                      'radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.28) 0%, rgba(196, 181, 253, 0.18) 35%, rgba(255, 255, 255, 0) 72%)',
+                  }}
                 />
               </div>
 
-              {/* Status Floating Cards */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -bottom-8 -left-8 glass-card p-5 rounded-[2rem] shadow-2xl flex items-center space-x-4 border-white/10"
+              {/* MAIN PORTRAIT CONTAINER - 36px rounded rectangular editorial presentation */}
+              <div
+                style={{
+                  borderRadius: '36px',
+                  border: '1px solid rgba(139, 92, 246, 0.12)',
+                  boxShadow: '0 30px 80px rgba(76, 29, 149, 0.12)',
+                }}
+                className="relative z-10 w-full overflow-hidden bg-[#FAF9FF]"
               >
-                <div className="bg-blue-500/20 p-3 rounded-2xl">
-                  <Terminal className="w-8 h-8 text-blue-400" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500 font-black uppercase tracking-widest">Experience</p>
-                  <p className="text-white font-bold text-xl">5+ Years</p>
-                </div>
-              </motion.div>
+                <img
+                  ref={imgRef}
+                  src={IMAGES.hero}
+                  alt="Harrison Thiong'o Kuria"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  onLoad={() => setImageLoaded(true)}
+                  className={`w-full h-[440px] sm:h-[490px] lg:h-[600px] xl:h-[650px] object-cover object-[center_top] select-none hover:scale-[1.01] transition-all duration-200 ease-out ${
+                    imageLoaded ? 'opacity-100 filter-none' : 'opacity-0 blur-[2px]'
+                  }`}
+                />
 
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 1.0 }}
-                className="absolute top-10 -right-8 glass-card p-4 rounded-2xl shadow-2xl border-white/10 hidden sm:block"
-              >
-                <div className="flex items-center space-x-2">
-                  <Cpu className="w-5 h-5 text-cyan-400" />
-                  <span className="text-sm font-bold text-slate-300">Go / React / Kotlin</span>
-                </div>
-              </motion.div>
-            </motion.div>
+                {/* Subtle gradient edge transition on left boundary: WHITE -> VERY LIGHT LAVENDER -> PHOTO */}
+                <div
+                  className="absolute inset-y-0 left-0 w-16 sm:w-24 lg:w-28 pointer-events-none z-10"
+                  style={{
+                    background:
+                      'linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(245, 243, 255, 0.22) 40%, rgba(237, 233, 254, 0.08) 70%, transparent 100%)',
+                  }}
+                />
+
+                {/* Subtle bottom edge grounding shadow */}
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-950/40 via-slate-950/10 to-transparent pointer-events-none" />
+              </div>
+
+              {/* FLOATING TECHNOLOGY CARD (UPPER-RIGHT) */}
+              <div className="absolute -top-3 right-1 sm:-top-5 sm:-right-4 lg:-right-6 z-20 animate-float-slow scale-[0.88] sm:scale-95 lg:scale-100 origin-top-right">
+                <TechCard className="w-[270px] sm:w-[300px]" />
+              </div>
+
+              {/* FLOATING CARD #2 (LOWER-LEFT - TURNING IDEAS INTO REAL PRODUCTS) */}
+              <div className="absolute bottom-12 sm:bottom-16 -left-2 sm:-left-5 lg:-left-7 z-20 animate-float-delayed scale-[0.88] sm:scale-95 lg:scale-100 origin-bottom-left">
+                <FloatingCard
+                  icon={<BarChart3 className="w-5 h-5 text-purple-600" />}
+                  title="Turning ideas"
+                  subtitle="into real products"
+                />
+              </div>
+
+              {/* EDITORIAL ACCENT (LOWER-RIGHT) */}
+              <div className="absolute -bottom-10 sm:-bottom-11 right-2 sm:right-3 text-right z-20 select-none pointer-events-none">
+                <div className="w-[50px] h-[2px] bg-[#8B5CF6] rounded-full ml-auto mt-3 sm:mt-3.5" />
+              </div>
+            </div>
+
+            {/* STATS SECTION (MOBILE: STACKED NATURALLY AFTER PORTRAIT & CARDS) */}
+            <div className="block lg:hidden w-full mt-14 sm:mt-16">
+              <Stats className="max-w-[600px] mx-auto" />
+            </div>
           </div>
         </div>
       </div>

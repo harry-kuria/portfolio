@@ -1,7 +1,8 @@
 // Import local photos from assets directory
-import heroImage from './assets/MOK_0369 (2).JPG';
-import aboutImage from './assets/MOK_0392.jpg';
-import profileImage from './assets/MOK_0400.jpg';
+import heroImage from './assets/harry2.jpeg';
+import aboutImage from './assets/harry3.jpeg';
+import originalPhoto from './assets/MOK_0369 (2).JPG';
+const profileImage = originalPhoto;
 
 import { Experience, Project, SkillCategory } from './types';
 
